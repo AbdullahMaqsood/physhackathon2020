@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 
 <head>
     <meta charset="utf-8">
@@ -15,7 +16,11 @@
         {% autoescape off %}
         {{ plot }}
         {% endautoescape %}</div>
-    
+
+        {% block scripts %}
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        {% endblock %}
+
     <div class="w3-panel w3-padding-64">⠀⠀⠀⠀⠀⠀⠀⠀</div>
  </div>
 

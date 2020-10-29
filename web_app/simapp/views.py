@@ -2,6 +2,7 @@ from django.shortcuts import render
 import plotly.graph_objects as go
 import plotly.express as px
 import plotly.offline as off
+import numpy as np
 
 
 def start(request):
@@ -10,7 +11,10 @@ def start(request):
 
 def sim(request):
 
-    sc = px.scatter(x=[0, 1, 2, 3, 4], y=[0, 1, 4, 9, 16], title="Hey, Im an example plot!")
+    x=np.linspace(0, 4, 1000)
+    for i in x:
+        y=np.sin(2 * np.pi * (x - 0.01 * i))
+        sc = px.scatter(x, y, title="Hey, Im an example plot!")
 
     plot = off.plot(sc,output_type='div', include_plotlyjs=True)
 
